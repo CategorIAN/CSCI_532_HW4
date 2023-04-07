@@ -4,6 +4,16 @@ class MySet:
         self.key = key
         self.set = set
 
+    def __repr__(self):
+        return str(self.set)
+
+    def __len__(self):
+        return len(self.set)
+
+    def __iter__(self):
+        for each in self.set:
+            yield each
+
     def __lt__(self, other):
         return len(self.set) < len(other.set)
 
