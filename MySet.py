@@ -1,7 +1,6 @@
 
 class MySet:
-    def __init__(self, key, set):
-        self.key = key
+    def __init__(self, set):
         self.set = set
 
     def __repr__(self):
@@ -11,15 +10,15 @@ class MySet:
         return len(self.set)
 
     def __iter__(self):
-        for each in self.set:
-            yield each
+        return iter(self.set)
+
 
     def __lt__(self, other):
         return len(self.set) < len(other.set)
 
     def __add__(self, other):
-        return MySet(self.key, self.set.union(other.set))
+        return MySet(self.set.union(other.set))
 
     def __sub__(self, other):
-        return MySet(self.key, self.set.difference(other.set))
+        return MySet(self.set.difference(other.set))
 

@@ -9,5 +9,5 @@ class CSVSetCollection (SetCollection):
         super().__init__(dict([(k, self.mySet(df, k)) for k in df.index]), len(df.columns))
 
     def mySet(self, df, key):
-        addElem = lambda s, elem: s + MySet(key, {int(elem)}) if bool(df.at[key, elem]) else s
-        return reduce(addElem, df.columns, MySet(key, set()))
+        addElem = lambda s, elem: s + MySet({int(elem)}) if bool(df.at[key, elem]) else s
+        return reduce(addElem, df.columns, MySet(set()))
